@@ -1,0 +1,163 @@
+{
+  "dataset_rows": 18842,
+  "missing_summary": {
+    "sample_id": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "dataset_source": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "provenance_tier": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "experiment_group": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "traffic_class": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "flow_duration_sec": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "packets_per_sec": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "bytes_per_sec": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "mean_iat_sec": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "std_iat_sec": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "mean_packet_size_bytes": {
+      "null_count": 18758,
+      "null_pct": 99.55
+    },
+    "std_packet_size_bytes": {
+      "null_count": 18758,
+      "null_pct": 99.55
+    },
+    "min_packet_size_bytes": {
+      "null_count": 18758,
+      "null_pct": 99.55
+    },
+    "max_packet_size_bytes": {
+      "null_count": 18758,
+      "null_pct": 99.55
+    },
+    "pcap_source": {
+      "null_count": 0,
+      "null_pct": 0.0
+    },
+    "raw_class_iscx": {
+      "null_count": 84,
+      "null_pct": 0.45
+    }
+  },
+  "inf_summary": {
+    "flow_duration_sec": 0,
+    "packets_per_sec": 0,
+    "bytes_per_sec": 0,
+    "mean_iat_sec": 0,
+    "std_iat_sec": 0,
+    "mean_packet_size_bytes": 0,
+    "std_packet_size_bytes": 0,
+    "min_packet_size_bytes": 0,
+    "max_packet_size_bytes": 0
+  },
+  "duplicates": {
+    "full_row_duplicates": 0,
+    "shared_feature_duplicates": 752
+  },
+  "class_distribution": {
+    "BULK": 5865,
+    "ICMP": 5103,
+    "WEB": 5022,
+    "INTERACTIVE": 2852
+  },
+  "tier_class_distribution": {
+    "BULK": {
+      "1": 30,
+      "2": 5835
+    },
+    "ICMP": {
+      "1": 6,
+      "2": 5097
+    },
+    "INTERACTIVE": {
+      "1": 26,
+      "2": 2826
+    },
+    "WEB": {
+      "1": 22,
+      "2": 5000
+    }
+  },
+  "feature_statistics": {
+    "flow_duration_sec": {
+      "mean": 9.750040503611487,
+      "std": 14.366055981765461,
+      "median": 11.005561,
+      "min": 0.0,
+      "max": 601.404954,
+      "outliers_iqr_count": 211,
+      "outliers_iqr_pct": 1.12
+    },
+    "packets_per_sec": {
+      "mean": 2074.6510878235954,
+      "std": 19075.002363689022,
+      "median": 11.791042041,
+      "min": 0.0,
+      "max": 1000000.0,
+      "outliers_iqr_count": 2204,
+      "outliers_iqr_pct": 11.7
+    },
+    "bytes_per_sec": {
+      "mean": 461831.13479790377,
+      "std": 8846528.9953084,
+      "median": 2706.00827479,
+      "min": 0.0,
+      "max": 617000000.0,
+      "outliers_iqr_count": 3307,
+      "outliers_iqr_pct": 17.55
+    },
+    "mean_iat_sec": {
+      "mean": 0.47484655268379805,
+      "std": 1.4016088203338684,
+      "median": 0.08315082291666664,
+      "min": 0.0,
+      "max": 60.7,
+      "outliers_iqr_count": 2412,
+      "outliers_iqr_pct": 12.8
+    },
+    "std_iat_sec": {
+      "mean": 1.0305719142759886,
+      "std": 3.5268271809593865,
+      "median": 0.0739538307864927,
+      "min": 0.0,
+      "max": 136.0,
+      "outliers_iqr_count": 2388,
+      "outliers_iqr_pct": 12.67
+    }
+  },
+  "low_variance_features": [],
+  "high_correlation_pairs": [
+    {
+      "feature_1": "mean_iat_sec",
+      "feature_2": "std_iat_sec",
+      "pearson_r": 0.8744
+    }
+  ]
+}

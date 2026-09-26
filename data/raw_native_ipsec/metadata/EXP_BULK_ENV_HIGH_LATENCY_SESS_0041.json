@@ -1,0 +1,20 @@
+{
+  "experiment_id": "EXP_BULK_ENV_HIGH_LATENCY",
+  "session_id": "SESS_0041",
+  "traffic_class": "BULK",
+  "environment_id": "ENV_HIGH_LATENCY",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_HIGH_LATENCY",
+    "latency": 45,
+    "jitter": 5,
+    "loss": 0.5
+  },
+  "duration_intended_sec": 25,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_BULK_ENV_HIGH_LATENCY_SESS_0041.pcap",
+  "validation_status": "VALID",
+  "validation_message": "643 pkts, 364 ESP pkts",
+  "timestamp": 1790199708.840714
+}

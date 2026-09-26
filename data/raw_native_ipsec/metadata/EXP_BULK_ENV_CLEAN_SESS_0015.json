@@ -1,0 +1,20 @@
+{
+  "experiment_id": "EXP_BULK_ENV_CLEAN",
+  "session_id": "SESS_0015",
+  "traffic_class": "BULK",
+  "environment_id": "ENV_CLEAN",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_CLEAN",
+    "latency": 0,
+    "jitter": 0,
+    "loss": 0.0
+  },
+  "duration_intended_sec": 15,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_BULK_ENV_CLEAN_SESS_0015.pcap",
+  "validation_status": "VALID",
+  "validation_message": "427 pkts, 259 ESP pkts",
+  "timestamp": 1790199558.9458115
+}

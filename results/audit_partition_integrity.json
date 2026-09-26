@@ -1,0 +1,113 @@
+[
+  {
+    "fold": 1,
+    "train_windows": 1463,
+    "test_windows": 366,
+    "train_groups": 125,
+    "test_groups": 32,
+    "group_overlap_count": 0,
+    "train_pcaps": 224,
+    "test_pcaps": 70,
+    "pcap_overlap_count": 0,
+    "test_class_dist": {
+      "BULK": 37,
+      "ICMP": 44,
+      "INTERACTIVE": 64,
+      "WEB": 221
+    },
+    "test_environments": [
+      "ENV_CLEAN",
+      "ENV_LOSSY",
+      "ENV_LOW"
+    ]
+  },
+  {
+    "fold": 2,
+    "train_windows": 1463,
+    "test_windows": 366,
+    "train_groups": 124,
+    "test_groups": 33,
+    "group_overlap_count": 0,
+    "train_pcaps": 218,
+    "test_pcaps": 76,
+    "pcap_overlap_count": 0,
+    "test_class_dist": {
+      "BULK": 44,
+      "ICMP": 208,
+      "INTERACTIVE": 54,
+      "WEB": 60
+    },
+    "test_environments": [
+      "ENV_CLEAN",
+      "ENV_HIGH",
+      "ENV_LOSSY"
+    ]
+  },
+  {
+    "fold": 3,
+    "train_windows": 1463,
+    "test_windows": 366,
+    "train_groups": 124,
+    "test_groups": 33,
+    "group_overlap_count": 0,
+    "train_pcaps": 247,
+    "test_pcaps": 47,
+    "pcap_overlap_count": 0,
+    "test_class_dist": {
+      "BULK": 12,
+      "ICMP": 228,
+      "INTERACTIVE": 29,
+      "WEB": 97
+    },
+    "test_environments": [
+      "ENV_CLEAN",
+      "ENV_LOSSY",
+      "ENV_LOW"
+    ]
+  },
+  {
+    "fold": 4,
+    "train_windows": 1463,
+    "test_windows": 366,
+    "train_groups": 125,
+    "test_groups": 32,
+    "group_overlap_count": 0,
+    "train_pcaps": 248,
+    "test_pcaps": 46,
+    "pcap_overlap_count": 0,
+    "test_class_dist": {
+      "BULK": 10,
+      "ICMP": 52,
+      "INTERACTIVE": 63,
+      "WEB": 241
+    },
+    "test_environments": [
+      "ENV_CLEAN",
+      "ENV_HIGH",
+      "ENV_LOSSY"
+    ]
+  },
+  {
+    "fold": 5,
+    "train_windows": 1464,
+    "test_windows": 365,
+    "train_groups": 130,
+    "test_groups": 27,
+    "group_overlap_count": 0,
+    "train_pcaps": 239,
+    "test_pcaps": 55,
+    "pcap_overlap_count": 0,
+    "test_class_dist": {
+      "BULK": 9,
+      "ICMP": 10,
+      "INTERACTIVE": 274,
+      "WEB": 72
+    },
+    "test_environments": [
+      "ENV_CLEAN",
+      "ENV_HIGH",
+      "ENV_LOSSY",
+      "ENV_LOW"
+    ]
+  }
+]

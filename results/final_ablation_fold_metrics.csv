@@ -1,0 +1,36 @@
+subset,fold,accuracy,macro_f1
+Set A (All 9 Features),1,0.5925,0.5971
+Set A (All 9 Features),2,0.7329,0.6222
+Set A (All 9 Features),3,0.74,0.6624
+Set A (All 9 Features),4,0.5411,0.588
+Set A (All 9 Features),5,0.312,0.4462
+Set B (Timing Only),1,0.5761,0.5791
+Set B (Timing Only),2,0.7037,0.6001
+Set B (Timing Only),3,0.6998,0.6244
+Set B (Timing Only),4,0.4735,0.51
+Set B (Timing Only),5,0.2619,0.3539
+Set C (Throughput Only),1,0.5734,0.5799
+Set C (Throughput Only),2,0.7211,0.6171
+Set C (Throughput Only),3,0.7126,0.6372
+Set C (Throughput Only),4,0.6843,0.6919
+Set C (Throughput Only),5,0.3312,0.4518
+Set D (Packet Size Only),1,0.5925,0.5761
+Set D (Packet Size Only),2,0.7557,0.6174
+Set D (Packet Size Only),3,0.7682,0.6641
+Set D (Packet Size Only),4,0.6232,0.6214
+Set D (Packet Size Only),5,0.2765,0.4171
+Set E (No IAT: Size+Throughput),1,0.5889,0.5923
+Set E (No IAT: Size+Throughput),2,0.742,0.6427
+Set E (No IAT: Size+Throughput),3,0.729,0.6517
+Set E (No IAT: Size+Throughput),4,0.6889,0.6907
+Set E (No IAT: Size+Throughput),5,0.3449,0.465
+Set F (IAT Only),1,0.5406,0.5439
+Set F (IAT Only),2,0.6846,0.5768
+Set F (IAT Only),3,0.6916,0.6183
+Set F (IAT Only),4,0.4589,0.4961
+Set F (IAT Only),5,0.2682,0.3754
+Set G (ByteRate Only),1,0.4512,0.444
+Set G (ByteRate Only),2,0.4394,0.4249
+Set G (ByteRate Only),3,0.51,0.4813
+Set G (ByteRate Only),4,0.5465,0.5149
+Set G (ByteRate Only),5,0.2774,0.3125

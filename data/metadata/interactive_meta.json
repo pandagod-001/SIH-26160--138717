@@ -1,0 +1,12 @@
+{
+    "experiment_id": "EXP_INTERACTIVE_001",
+    "traffic_class": "INTERACTIVE",
+    "ipsec_version": "IKEv2",
+    "mode": "tunnel",
+    "encryption": "AES-128-CBC",
+    "authentication": "HMAC-SHA256",
+    "duration_seconds": 7.31,
+    "capture_file": "data/raw/interactive/traffic.pcap",
+    "interface": "veth-c",
+    "ground_truth_label": "INTERACTIVE"
+}

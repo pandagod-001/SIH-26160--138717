@@ -1,0 +1,112 @@
+[
+  {
+    "session_id": "SESS_0x11223344_00",
+    "control_plane": {
+      "ike_version": "2.0 (Inferred)",
+      "encryption_transform": "AES-128-CBC",
+      "integrity_transform": "HMAC-SHA256",
+      "dh_group": "MODP-2048 (Group 14)"
+    },
+    "data_plane": {
+      "total_esp_packets": 573,
+      "spi": "0x11223344",
+      "total_bytes": 100622,
+      "directions_observed": [
+        "forward"
+      ]
+    },
+    "ai_classification": {
+      "predicted_class": "BULK",
+      "confidence_score": 0.942,
+      "feature_vector_sample": {
+        "packet_count": 15,
+        "mean_packet_size": 139.33333333333334,
+        "bytes_per_sec": 73919.34699384433
+      },
+      "ood_status": false,
+      "ood_notes": "Sample within in-distribution traffic parameters."
+    },
+    "security_findings": [
+      {
+        "check": "IKE_NEGOTIATION_OBSERVED",
+        "status": "UNKNOWN",
+        "severity": "WARNING",
+        "finding": "No active IKE negotiation packets observed in capture session.",
+        "evidence": "0 IKE_SA_INIT packets found in stream.",
+        "recommendation": "Ensure full IKE handshake is captured at tunnel startup."
+      },
+      {
+        "check": "ESP_TRAFFIC_OBSERVED",
+        "status": "PASS",
+        "severity": "INFO",
+        "finding": "Encapsulating Security Payload (ESP) Traffic Present",
+        "evidence": "1222 ESP packets captured across SPIs: ['0x11223344', '0x55667788']",
+        "recommendation": "Data plane IPsec encapsulation operating normally."
+      },
+      {
+        "check": "REPLAY_PROTECTION_SEQUENCE",
+        "status": "PASS",
+        "severity": "INFO",
+        "finding": "Anti-Replay Sequence Window Healthy",
+        "evidence": "Max sequence number: 4968 (well within bounds)",
+        "recommendation": "Maintain standard anti-replay window."
+      }
+    ],
+    "overall_status": "PASS"
+  },
+  {
+    "session_id": "SESS_0x55667788_01",
+    "control_plane": {
+      "ike_version": "2.0 (Inferred)",
+      "encryption_transform": "AES-128-CBC",
+      "integrity_transform": "HMAC-SHA256",
+      "dh_group": "MODP-2048 (Group 14)"
+    },
+    "data_plane": {
+      "total_esp_packets": 649,
+      "spi": "0x55667788",
+      "total_bytes": 531958,
+      "directions_observed": [
+        "reverse"
+      ]
+    },
+    "ai_classification": {
+      "predicted_class": "BULK",
+      "confidence_score": 0.942,
+      "feature_vector_sample": {
+        "packet_count": 15,
+        "mean_packet_size": 1248.6666666666667,
+        "bytes_per_sec": 662634.6529909916
+      },
+      "ood_status": false,
+      "ood_notes": "Sample within in-distribution traffic parameters."
+    },
+    "security_findings": [
+      {
+        "check": "IKE_NEGOTIATION_OBSERVED",
+        "status": "UNKNOWN",
+        "severity": "WARNING",
+        "finding": "No active IKE negotiation packets observed in capture session.",
+        "evidence": "0 IKE_SA_INIT packets found in stream.",
+        "recommendation": "Ensure full IKE handshake is captured at tunnel startup."
+      },
+      {
+        "check": "ESP_TRAFFIC_OBSERVED",
+        "status": "PASS",
+        "severity": "INFO",
+        "finding": "Encapsulating Security Payload (ESP) Traffic Present",
+        "evidence": "1222 ESP packets captured across SPIs: ['0x11223344', '0x55667788']",
+        "recommendation": "Data plane IPsec encapsulation operating normally."
+      },
+      {
+        "check": "REPLAY_PROTECTION_SEQUENCE",
+        "status": "PASS",
+        "severity": "INFO",
+        "finding": "Anti-Replay Sequence Window Healthy",
+        "evidence": "Max sequence number: 4968 (well within bounds)",
+        "recommendation": "Maintain standard anti-replay window."
+      }
+    ],
+    "overall_status": "PASS"
+  }
+]

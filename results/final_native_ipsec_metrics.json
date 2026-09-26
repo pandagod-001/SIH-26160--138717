@@ -1,0 +1,131 @@
+{
+  "dataset_summary": {
+    "total_genuine_samples": 5482,
+    "total_independent_sessions": 157,
+    "total_raw_pcaps": 294,
+    "class_distribution": {
+      "WEB": 1866,
+      "ICMP": 1518,
+      "INTERACTIVE": 1424,
+      "BULK": 674
+    },
+    "environment_distribution": {
+      "ENV_CLEAN": 1522,
+      "ENV_LOW": 1332,
+      "ENV_HIGH": 1314,
+      "ENV_LOSSY": 1314
+    }
+  },
+  "models": {
+    "Dummy": {
+      "accuracy_mean": 0.2502668192615561,
+      "macro_f1_mean": 0.2157453233747438
+    },
+    "LogisticRegression": {
+      "accuracy_mean": 0.5475563747180433,
+      "accuracy_std": 0.19005557861473438,
+      "macro_f1_mean": 0.3385261069040383,
+      "macro_f1_std": 0.08781902761953225
+    },
+    "RandomForest": {
+      "accuracy_mean": 0.5732981123036284,
+      "accuracy_std": 0.16150571550478832,
+      "macro_f1_mean": 0.5714294852248328,
+      "macro_f1_std": 0.0779528707650539,
+      "per_class_f1": {
+        "BULK": 0.5197090644322923,
+        "ICMP": 0.9185288920729823,
+        "INTERACTIVE": 0.35835036085172184,
+        "WEB": 0.48912962354233525
+      },
+      "mean_maximum_predicted_probability": 0.7241874899652647,
+      "expected_calibration_error": 0.15697455571291674,
+      "brier_score": 0.5330694477446234
+    },
+    "XGBoost": {
+      "accuracy_mean": 0.5680081376547851,
+      "accuracy_std": 0.14989603773437538,
+      "macro_f1_mean": 0.5595619507727776,
+      "macro_f1_std": 0.06928964208330772
+    }
+  },
+  "ablation_study": {
+    "Set A (All 9 Features)": {
+      "mean_macro_f1": 0.5714294852248328,
+      "std_macro_f1": 0.0779528707650539
+    },
+    "Set B (Timing Only)": {
+      "mean_macro_f1": 0.5213057064746234,
+      "std_macro_f1": 0.08745555123026463
+    },
+    "Set C (Throughput Only)": {
+      "mean_macro_f1": 0.5910689083034707,
+      "std_macro_f1": 0.07400731814579377
+    },
+    "Set D (Packet Size Only)": {
+      "mean_macro_f1": 0.5815127024034512,
+      "std_macro_f1": 0.0819389246956828
+    },
+    "Set E (No IAT)": {
+      "mean_macro_f1": 0.5935109626196213,
+      "std_macro_f1": 0.07115067670835884
+    },
+    "Set F (IAT Only)": {
+      "mean_macro_f1": 0.5159888112806154,
+      "std_macro_f1": 0.08223561884960348
+    },
+    "Set G (ByteRate Only)": {
+      "mean_macro_f1": 0.42655041649465886,
+      "std_macro_f1": 0.06039424642177338
+    }
+  },
+  "ood_sweep": [
+    {
+      "threshold": 0.5,
+      "id_retention_rate": 0.9241,
+      "ood_rejection_rate": 0.8992
+    },
+    {
+      "threshold": 0.6,
+      "id_retention_rate": 0.694,
+      "ood_rejection_rate": 0.9559
+    },
+    {
+      "threshold": 0.7,
+      "id_retention_rate": 0.4763,
+      "ood_rejection_rate": 0.9835
+    },
+    {
+      "threshold": 0.8,
+      "id_retention_rate": 0.2656,
+      "ood_rejection_rate": 0.9974
+    },
+    {
+      "threshold": 0.9,
+      "id_retention_rate": 0.1213,
+      "ood_rejection_rate": 0.9993
+    }
+  ],
+  "unseen_environment_test": {
+    "ENV_CLEAN": {
+      "test_samples": 1522,
+      "accuracy": 0.6176,
+      "macro_f1": 0.6192
+    },
+    "ENV_HIGH": {
+      "test_samples": 1314,
+      "accuracy": 0.6469,
+      "macro_f1": 0.6088
+    },
+    "ENV_LOSSY": {
+      "test_samples": 1314,
+      "accuracy": 0.5708,
+      "macro_f1": 0.5719
+    },
+    "ENV_LOW": {
+      "test_samples": 1332,
+      "accuracy": 0.6291,
+      "macro_f1": 0.6264
+    }
+  }
+}

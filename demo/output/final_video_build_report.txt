@@ -1,0 +1,15 @@
+================================================================================
+IPsecTrace MASTER DEMONSTRATION VIDEO BUILD REPORT
+================================================================================
+Total Execution Time : 52.48 seconds
+Final Duration       : 120.39 seconds (2.01 minutes)
+Resolution           : 1920 x 1080 (16:9 Broadcast Standard)
+Frame Rate           : 30.0 FPS
+Video Codec          : H.264 (AVC)
+Audio Codec          : AAC (192 kbps, 44.1 kHz)
+File Size            : 5.46 MB
+Audio Included       : YES (Synchronized Narration)
+Subtitles Included   : YES (C:\Users\Abhijay\ipsec\demo\output\IPsecTrace_FINAL_SUBTITLES.srt)
+Master Video Path    : C:\Users\Abhijay\ipsec\demo\output\IPsecTrace_RESEARCH_DEMO.mp4
+Silent Video Path    : C:\Users\Abhijay\ipsec\demo\output\IPsecTrace_RESEARCH_DEMO_WITHOUT_AUDIO.mp4
+================================================================================

@@ -1,0 +1,20 @@
+{
+  "experiment_id": "EXP_BULK_ENV_LOSSY",
+  "session_id": "SESS_0079",
+  "traffic_class": "BULK",
+  "environment_id": "ENV_LOSSY",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_LOSSY",
+    "latency": 20,
+    "jitter": 3,
+    "loss": 1.5
+  },
+  "duration_intended_sec": 10,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_BULK_ENV_LOSSY_SESS_0079.pcap",
+  "validation_status": "VALID",
+  "validation_message": "410 pkts, 232 ESP pkts",
+  "timestamp": 1790199956.7534058
+}

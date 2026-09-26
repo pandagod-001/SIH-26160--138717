@@ -1,0 +1,18 @@
+{
+  "experiment_id": "EXP_BULK_ENV_LOW_LATENCY",
+  "session_id": "SESS_0020",
+  "traffic_class": "BULK",
+  "environment_id": "ENV_LOW_LATENCY",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_LOW_LATENCY",
+    "latency": 10,
+    "jitter": 2,
+    "loss": 0.0
+  },
+  "duration_intended_sec": 6,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_BULK_ENV_LOW_LATENCY_SESS_0020.pcap",
+  "timestamp": 1790200404.2150612
+}

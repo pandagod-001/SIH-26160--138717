@@ -1,0 +1,337 @@
+{
+  "exp1_leakage_check": {
+    "random_kfold": {
+      "Dummy": 0.2998,
+      "LogisticRegression": 0.7769,
+      "RandomForest": 0.975,
+      "XGBoost": 0.947,
+      "LightGBM": 0.975
+    },
+    "grouped_kfold": {
+      "Dummy": 0.266,
+      "LogisticRegression": 0.7295,
+      "RandomForest": 0.9529,
+      "XGBoost": 0.9167,
+      "LightGBM": 0.9421
+    }
+  },
+  "exp2_tier1_benchmark": {
+    "Dummy": {
+      "accuracy": 0.3228,
+      "macro_f1": 0.266,
+      "precision": 0.2958,
+      "recall": 0.265
+    },
+    "LogisticRegression": {
+      "accuracy": 0.7265,
+      "macro_f1": 0.7251,
+      "precision": 0.7778,
+      "recall": 0.7388
+    },
+    "RandomForest": {
+      "accuracy": 0.9412,
+      "macro_f1": 0.9529,
+      "precision": 0.9583,
+      "recall": 0.9658
+    },
+    "XGBoost": {
+      "accuracy": 0.9529,
+      "macro_f1": 0.9167,
+      "precision": 0.9274,
+      "recall": 0.9155
+    },
+    "LightGBM": {
+      "accuracy": 0.9294,
+      "macro_f1": 0.9421,
+      "precision": 0.9524,
+      "recall": 0.9558
+    }
+  },
+  "exp3_combined_benchmark": {
+    "Dummy": {
+      "accuracy": 0.2692,
+      "macro_f1": 0.2522,
+      "precision": 0.2522,
+      "recall": 0.2523
+    },
+    "LogisticRegression": {
+      "accuracy": 0.4089,
+      "macro_f1": 0.3271,
+      "precision": 0.437,
+      "recall": 0.3709
+    },
+    "RandomForest": {
+      "accuracy": 0.8985,
+      "macro_f1": 0.883,
+      "precision": 0.8867,
+      "recall": 0.8804
+    },
+    "XGBoost": {
+      "accuracy": 0.8624,
+      "macro_f1": 0.8381,
+      "precision": 0.8503,
+      "recall": 0.8337
+    },
+    "LightGBM": {
+      "accuracy": 0.8904,
+      "macro_f1": 0.873,
+      "precision": 0.8775,
+      "recall": 0.8705
+    }
+  },
+  "exp4_cross_dataset_transfer": {
+    "train_t1_test_t2": {
+      "accuracy": 0.2592,
+      "macro_f1": 0.25
+    },
+    "train_t2_test_t1": {
+      "accuracy": 0.5,
+      "macro_f1": 0.32
+    },
+    "scientific_note": "Evaluates encrypted VPN application traffic generalization across testbed topologies without domain adaptation."
+  },
+  "exp5_hyperparameter_sensitivity": [
+    {
+      "learning_rate": 0.01,
+      "max_depth": 3,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.5947
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 3,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.6093
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.6638
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 5,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.6511
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 5,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.7234
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 5,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8033
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 7,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.753
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 7,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8015
+    },
+    {
+      "learning_rate": 0.01,
+      "max_depth": 7,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8322
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.7909
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8251
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8388
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 5,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.8321
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 5,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8499
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 5,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8656
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 7,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.8552
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 7,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8684
+    },
+    {
+      "learning_rate": 0.1,
+      "max_depth": 7,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8775
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 3,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.8269
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 3,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8395
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 3,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8549
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 5,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.8513
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 5,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8667
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 5,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8758
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 7,
+      "n_estimators": 50,
+      "mean_macro_f1": 0.8711
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 7,
+      "n_estimators": 100,
+      "mean_macro_f1": 0.8788
+    },
+    {
+      "learning_rate": 0.2,
+      "max_depth": 7,
+      "n_estimators": 200,
+      "mean_macro_f1": 0.8838
+    }
+  ],
+  "exp6_feature_ablation": [
+    {
+      "feature_set": "Set_A_All_Shared",
+      "features_included": "flow_duration_sec, packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",
+      "macro_f1": 0.883
+    },
+    {
+      "feature_set": "Set_B_Timing_Only",
+      "features_included": "mean_iat_sec, std_iat_sec, flow_duration_sec",
+      "macro_f1": 0.8282
+    },
+    {
+      "feature_set": "Set_C_Throughput_Only",
+      "features_included": "packets_per_sec, bytes_per_sec",
+      "macro_f1": 0.8066
+    },
+    {
+      "feature_set": "Set_D_No_Duration",
+      "features_included": "packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",
+      "macro_f1": 0.8742
+    },
+    {
+      "feature_set": "Set_E_No_IAT",
+      "features_included": "flow_duration_sec, packets_per_sec, bytes_per_sec",
+      "macro_f1": 0.8542
+    },
+    {
+      "feature_set": "Set_F_IAT_Only",
+      "features_included": "mean_iat_sec, std_iat_sec",
+      "macro_f1": 0.7841
+    },
+    {
+      "feature_set": "Set_G_ByteRate_Only",
+      "features_included": "bytes_per_sec",
+      "macro_f1": 0.6003
+    }
+  ],
+  "exp7_ood_rejection": {
+    "in_distribution_classes": [
+      "BULK",
+      "WEB",
+      "INTERACTIVE"
+    ],
+    "held_out_classes": [
+      "ICMP / VOIP"
+    ],
+    "ood_sample_count": 5103,
+    "mean_in_dist_confidence": 0.9265,
+    "mean_ood_confidence": 0.6478,
+    "ood_rejection_rate_at_threshold_0.5": 0.0259,
+    "in_dist_retention_rate_at_threshold_0.5": 1.0
+  },
+  "exp8_model_calibration": {
+    "RandomForest": {
+      "expected_calibration_error_ece": 0.0121,
+      "brier_score": 0.1497
+    },
+    "XGBoost": {
+      "expected_calibration_error_ece": 0.0347,
+      "brier_score": 0.2017
+    }
+  },
+  "exp9_error_forensics": {
+    "test_samples": 3769,
+    "total_misclassified": 389,
+    "error_rate": 0.1032,
+    "top_confusion_pairs": {
+      "BULK -> ICMP": 1,
+      "BULK -> INTERACTIVE": 74,
+      "BULK -> WEB": 66,
+      "ICMP -> BULK": 11,
+      "ICMP -> INTERACTIVE": 5,
+      "ICMP -> WEB": 2,
+      "INTERACTIVE -> BULK": 71,
+      "INTERACTIVE -> ICMP": 1,
+      "INTERACTIVE -> WEB": 71,
+      "WEB -> BULK": 50,
+      "WEB -> INTERACTIVE": 37
+    }
+  }
+}

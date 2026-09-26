@@ -1,0 +1,22 @@
+{
+  "claimed_total_flows": 18842,
+  "actual_canonical_rows": 18842,
+  "unique_flow_ids": 18842,
+  "unique_experiment_groups": 90,
+  "unique_dataset_sources": 2,
+  "reconciliation_match": true,
+  "class_distribution": {
+    "BULK": 5865,
+    "ICMP": 5103,
+    "WEB": 5022,
+    "INTERACTIVE": 2852
+  },
+  "provenance_distribution": {
+    "2": 18758,
+    "1": 84
+  },
+  "dataset_source_distribution": {
+    "DS4_ISCX_SCENARIO_B": 18758,
+    "DS1_CUSTOM_IPSEC": 84
+  }
+}

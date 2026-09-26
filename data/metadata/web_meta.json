@@ -1,0 +1,12 @@
+{
+    "experiment_id": "EXP_WEB_001",
+    "traffic_class": "WEB",
+    "ipsec_version": "IKEv2",
+    "mode": "tunnel",
+    "encryption": "AES-128-CBC",
+    "authentication": "HMAC-SHA256",
+    "duration_seconds": 6.68,
+    "capture_file": "data/raw/web/traffic.pcap",
+    "interface": "veth-c",
+    "ground_truth_label": "WEB"
+}

@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:11,425
+IPsecTrace: Protocol-Aware Encrypted IPsec Traffic Analysis (Real Traffic + Deterministic Forensics + AI Inference + Security Assessment)
+
+2
+00:00:11,425 --> 00:00:25,284
+Payload is Encrypted & NOT_OBSERVABLE — Signal Exists in Control Plane, Timing & Packet Dynamics
+
+3
+00:00:25,284 --> 00:00:38,320
+Architecture Pipeline: Ingestion -> Protocol Analysis -> Feature Extraction -> AI & Rules -> Evidence
+
+4
+00:00:38,320 --> 00:00:52,178
+Protocol Ground-Truth: IKEv2, ESP SPIs, Replay Monotonicity, and SA Lifetimes extracted deterministically.
+
+5
+00:00:52,178 --> 00:01:02,237
+Dual-View Representation: 14 Aggregate Flow Features + [32, 4] Packet Sequence Tensor.
+
+6
+00:01:02,237 --> 00:01:15,892
+Winning Hybrid Model C: 80.25% Accuracy (+13.35% Gain over Baseline) | 81.89% Macro-F1 (Capture-Disjoint).
+
+7
+00:01:15,892 --> 00:01:26,284
+Experimental OOD Novelty Detector: SSL Embedding Mahalanobis Distance yields 0.9962 AUROC.
+
+8
+00:01:26,284 --> 00:01:40,042
+Live Prototype Execution: 306 Packets -> 183 ESP -> 2 SAs Reconstructed -> Bulk Classified at 97.46% Prob.
+
+9
+00:01:40,042 --> 00:01:50,652
+Limitations: Testbed evaluation, group-disjoint fold variance, payload unobservable, experimental OOD.
+
+10
+00:01:50,652 --> 00:02:00,389
+IPsecTrace: Complete, Validated & Reproducible Research Prototype for Zero-Trust Networks.
+

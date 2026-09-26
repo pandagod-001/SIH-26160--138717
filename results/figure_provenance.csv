@@ -1,0 +1,9 @@
+Figure File,Generating Script,Source Data,Primary Metric / Visual
+class_distribution.png,src/visualizer/plot_phase2_charts.py,data/processed/canonical_vpn_dataset.csv,Flow count by traffic category
+confusion_matrix_random_forest.png,src/visualizer/plot_phase2_charts.py,results/metrics.json,5-Fold GroupKFold RF Confusion Matrix
+confusion_matrix_xgboost.png,src/visualizer/plot_phase2_charts.py,results/metrics.json,5-Fold GroupKFold XGBoost Confusion Matrix
+feature_importance_random_forest.png,src/visualizer/plot_phase2_charts.py,results/metrics.json,Random Forest Gini Feature Importances
+feature_importance_xgboost.png,src/visualizer/plot_phase2_charts.py,results/metrics.json,XGBoost Split Feature Importances
+ablation_comparison.png,src/visualizer/plot_phase2_charts.py,results/ablation_study.csv,Ablation Subset Macro F1 Bar Chart
+cross_dataset_transfer.png,src/visualizer/plot_phase2_charts.py,results/metrics.json,Domain Transfer Performance Retention
+architecture_evidence.png,src/visualizer/plot_phase2_charts.py,SIH_EVIDENCE/03_ARCHITECTURE.md,Architecture Evidence Implementation Status

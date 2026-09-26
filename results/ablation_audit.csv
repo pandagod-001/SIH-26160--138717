@@ -1,0 +1,8 @@
+Set Code,Feature Group Name,Features Included,Macro F1 Score,Audit Status
+Set A,All Shared Features,"flow_duration_sec, packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",0.883,VERIFIED
+Set D,No Duration,"packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",0.8809,VERIFIED
+Set B,Timing Only,"mean_iat_sec, std_iat_sec, flow_duration_sec",0.8576,VERIFIED
+Set E,No IAT,"flow_duration_sec, packets_per_sec, bytes_per_sec",0.8542,VERIFIED
+Set C,Throughput Only,"packets_per_sec, bytes_per_sec",0.853,VERIFIED
+Set F,IAT Only,"mean_iat_sec, std_iat_sec",0.7841,VERIFIED
+Set G,ByteRate Only,bytes_per_sec,0.6003,VERIFIED

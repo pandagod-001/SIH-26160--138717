@@ -1,0 +1,80 @@
+{
+  "grouping_variable": "experiment_group (Session / Capture ID)",
+  "total_canonical_samples": 18842,
+  "total_unique_groups": 90,
+  "n_splits": 5,
+  "total_cross_fold_leakage_events": 0,
+  "grouped_splitting_status": "PASSED (Zero Overlap Verified)",
+  "folds": [
+    {
+      "fold": 1,
+      "train_samples": 15073,
+      "val_samples": 3769,
+      "train_unique_groups": 72,
+      "val_unique_groups": 18,
+      "group_overlap_count": 0,
+      "val_class_distribution": {
+        "BULK": 1173,
+        "ICMP": 1021,
+        "WEB": 1005,
+        "INTERACTIVE": 570
+      }
+    },
+    {
+      "fold": 2,
+      "train_samples": 15073,
+      "val_samples": 3769,
+      "train_unique_groups": 72,
+      "val_unique_groups": 18,
+      "group_overlap_count": 0,
+      "val_class_distribution": {
+        "BULK": 1173,
+        "ICMP": 1022,
+        "WEB": 1004,
+        "INTERACTIVE": 570
+      }
+    },
+    {
+      "fold": 3,
+      "train_samples": 15074,
+      "val_samples": 3768,
+      "train_unique_groups": 72,
+      "val_unique_groups": 18,
+      "group_overlap_count": 0,
+      "val_class_distribution": {
+        "BULK": 1173,
+        "ICMP": 1020,
+        "WEB": 1004,
+        "INTERACTIVE": 571
+      }
+    },
+    {
+      "fold": 4,
+      "train_samples": 15074,
+      "val_samples": 3768,
+      "train_unique_groups": 72,
+      "val_unique_groups": 18,
+      "group_overlap_count": 0,
+      "val_class_distribution": {
+        "BULK": 1173,
+        "ICMP": 1020,
+        "WEB": 1004,
+        "INTERACTIVE": 571
+      }
+    },
+    {
+      "fold": 5,
+      "train_samples": 15074,
+      "val_samples": 3768,
+      "train_unique_groups": 72,
+      "val_unique_groups": 18,
+      "group_overlap_count": 0,
+      "val_class_distribution": {
+        "BULK": 1173,
+        "ICMP": 1020,
+        "WEB": 1005,
+        "INTERACTIVE": 570
+      }
+    }
+  ]
+}

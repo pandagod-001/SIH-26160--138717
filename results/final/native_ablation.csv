@@ -1,0 +1,8 @@
+subset_name,feature_count,macro_f1_mean,macro_f1_std,macro_f1_ci95
+Set E (No IAT: Size+Throughput),7,0.6085,0.0783,60.85% ± 6.86%
+Set C (Throughput Only),2,0.5956,0.0805,59.56% ± 7.06%
+Set A (All 9 Features),9,0.5832,0.0732,58.32% ± 6.41%
+Set D (Packet Size Only),4,0.5792,0.0857,57.92% ± 7.51%
+Set B (Timing Only),3,0.5335,0.0976,53.35% ± 8.55%
+Set F (IAT Only),2,0.5221,0.0836,52.21% ± 7.32%
+Set G (ByteRate Only),1,0.4355,0.0689,43.55% ± 6.04%

@@ -1,0 +1,106 @@
+{
+  "dataset_name": "DS1_NATIVE_IPSEC_ENHANCED",
+  "total_samples": 1829,
+  "classes": [
+    "BULK",
+    "ICMP",
+    "INTERACTIVE",
+    "WEB"
+  ],
+  "xgboost_baseline": {
+    "accuracy_mean": 0.6690560670708885,
+    "accuracy_std": 0.1865775464801254,
+    "macro_f1_mean": 0.7391263626276795,
+    "macro_f1_std": 0.04842575105587323,
+    "confusion_matrix": [
+      [
+        107,
+        0,
+        1,
+        4
+      ],
+      [
+        2,
+        537,
+        0,
+        3
+      ],
+      [
+        1,
+        0,
+        185,
+        298
+      ],
+      [
+        2,
+        2,
+        292,
+        395
+      ]
+    ]
+  },
+  "sequence_transformer": {
+    "accuracy_mean": 0.7132704543753275,
+    "accuracy_std": 0.2255665838688859,
+    "macro_f1_mean": 0.7607373637945649,
+    "macro_f1_std": 0.11091659699774659,
+    "confusion_matrix": [
+      [
+        112,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        540,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        133,
+        348
+      ],
+      [
+        0,
+        0,
+        171,
+        520
+      ]
+    ]
+  },
+  "hybrid_model": {
+    "accuracy_mean": 0.7088794071412531,
+    "accuracy_std": 0.2355352282709695,
+    "macro_f1_mean": 0.7142639770820477,
+    "macro_f1_std": 0.09865761278914792,
+    "confusion_matrix": [
+      [
+        111,
+        0,
+        0,
+        1
+      ],
+      [
+        7,
+        528,
+        7,
+        0
+      ],
+      [
+        1,
+        1,
+        76,
+        406
+      ],
+      [
+        1,
+        1,
+        107,
+        582
+      ]
+    ]
+  }
+}

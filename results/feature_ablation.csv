@@ -1,0 +1,8 @@
+feature_set,features_included,macro_f1
+Set_A_All_Shared,"flow_duration_sec, packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",0.883
+Set_B_Timing_Only,"mean_iat_sec, std_iat_sec, flow_duration_sec",0.8282
+Set_C_Throughput_Only,"packets_per_sec, bytes_per_sec",0.8066
+Set_D_No_Duration,"packets_per_sec, bytes_per_sec, mean_iat_sec, std_iat_sec",0.8742
+Set_E_No_IAT,"flow_duration_sec, packets_per_sec, bytes_per_sec",0.8542
+Set_F_IAT_Only,"mean_iat_sec, std_iat_sec",0.7841
+Set_G_ByteRate_Only,bytes_per_sec,0.6003

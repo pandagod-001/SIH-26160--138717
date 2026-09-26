@@ -1,0 +1,18 @@
+{
+  "experiment_id": "EXP_ICMP_ENV_HIGH_LATENCY",
+  "session_id": "SESS_0224",
+  "traffic_class": "ICMP",
+  "environment_id": "ENV_HIGH_LATENCY",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_HIGH_LATENCY",
+    "latency": 45,
+    "jitter": 5,
+    "loss": 0.5
+  },
+  "duration_intended_sec": 8,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_ICMP_ENV_HIGH_LATENCY_SESS_0224.pcap",
+  "timestamp": 1790222663.5416858
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "subset_name": "Set A (All 9 Features)",
+    "feature_count": 9,
+    "macro_f1_mean": 0.5832,
+    "macro_f1_std": 0.0732,
+    "macro_f1_ci95": "58.32% \u00b1 6.41%"
+  },
+  {
+    "subset_name": "Set B (Timing Only)",
+    "feature_count": 3,
+    "macro_f1_mean": 0.5335,
+    "macro_f1_std": 0.0976,
+    "macro_f1_ci95": "53.35% \u00b1 8.55%"
+  },
+  {
+    "subset_name": "Set C (Throughput Only)",
+    "feature_count": 2,
+    "macro_f1_mean": 0.5956,
+    "macro_f1_std": 0.0805,
+    "macro_f1_ci95": "59.56% \u00b1 7.06%"
+  },
+  {
+    "subset_name": "Set D (Packet Size Only)",
+    "feature_count": 4,
+    "macro_f1_mean": 0.5792,
+    "macro_f1_std": 0.0857,
+    "macro_f1_ci95": "57.92% \u00b1 7.51%"
+  },
+  {
+    "subset_name": "Set E (No IAT: Size+Throughput)",
+    "feature_count": 7,
+    "macro_f1_mean": 0.6085,
+    "macro_f1_std": 0.0783,
+    "macro_f1_ci95": "60.85% \u00b1 6.86%"
+  },
+  {
+    "subset_name": "Set F (IAT Only)",
+    "feature_count": 2,
+    "macro_f1_mean": 0.5221,
+    "macro_f1_std": 0.0836,
+    "macro_f1_ci95": "52.21% \u00b1 7.32%"
+  },
+  {
+    "subset_name": "Set G (ByteRate Only)",
+    "feature_count": 1,
+    "macro_f1_mean": 0.4355,
+    "macro_f1_std": 0.0689,
+    "macro_f1_ci95": "43.55% \u00b1 6.04%"
+  }
+]

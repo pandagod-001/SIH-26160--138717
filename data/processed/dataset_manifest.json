@@ -1,0 +1,59 @@
+{
+  "created_at": "2026-09-24T01:52:46.807511",
+  "total_samples": 18842,
+  "tier1_samples": 84,
+  "tier2_samples": 18758,
+  "sources": {
+    "DS1_CUSTOM_IPSEC": {
+      "count": 84,
+      "classes": {
+        "BULK": 30,
+        "INTERACTIVE": 26,
+        "WEB": 22,
+        "ICMP": 6
+      },
+      "provenance": "Custom Linux IPsec StrongSwan testbed (ESP/IKEv2) PCAP captures"
+    },
+    "DS4_ISCX_SCENARIO_B": {
+      "count": 18758,
+      "classes": {
+        "BULK": 5835,
+        "ICMP": 5097,
+        "WEB": 5000,
+        "INTERACTIVE": 2826
+      },
+      "raw_classes": {
+        "VOIP": 5097,
+        "BROWSING": 5000,
+        "FT": 2950,
+        "CHAT": 2086,
+        "P2P": 1928,
+        "STREAMING": 957,
+        "MAIL": 740
+      },
+      "provenance": "UNB ISCX VPN-nonVPN Scenario B (15-second time-based flows)"
+    }
+  },
+  "shared_features": [
+    "flow_duration_sec",
+    "packets_per_sec",
+    "bytes_per_sec",
+    "mean_iat_sec",
+    "std_iat_sec"
+  ],
+  "tier1_exclusive_features": [
+    "mean_packet_size_bytes",
+    "std_packet_size_bytes",
+    "min_packet_size_bytes",
+    "max_packet_size_bytes"
+  ],
+  "label_mapping_iscx_to_canonical": {
+    "BROWSING": "WEB",
+    "CHAT": "INTERACTIVE",
+    "STREAMING": "BULK",
+    "FT": "BULK",
+    "P2P": "BULK",
+    "MAIL": "INTERACTIVE",
+    "VOIP": "ICMP"
+  }
+}

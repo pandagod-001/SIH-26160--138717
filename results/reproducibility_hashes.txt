@@ -1,0 +1,27 @@
+# IPsecTrace Reproducibility Artifact Hashes (SHA-256 / MD5)
+# Generated Date: 2026-09-24
+
+File: data/processed/canonical_vpn_dataset.csv
+  MD5:    cfc21a3b7e016a3f0da7fe32dfcf884e
+  SHA256: 74f0b49e6e46f9c68fc34d7cc940d618b9cbfb821344efbc4630992d18fa8199
+
+File: results/features.csv
+  MD5:    122bef65e1ffafd1ca2692374567c8f4
+  SHA256: 1f9b4cd8d080ae668e979ef9438427acb70fa80a63985d580f92260cbd1e30bb
+
+File: results/metrics.json
+  MD5:    8a7e30d2b29a4f5c6b2678abd0690275
+  SHA256: dba47817f2acab1a61bfb83e67b0d9922a31fdfc1df662e7086274dcb2a234b0
+
+File: results/model_comparison.csv
+  MD5:    f8c1aa4540df1739bb9957e5945f918b
+  SHA256: 71bee1a6c16334789f17afec2b6d0a56e9f182f4fb610c922a5e32bfc80cfe2b
+
+File: results/error_analysis.csv
+  MD5:    cebca13014446f0dd9718b127ed7350a
+  SHA256: 6fb525c3279db005687bbe38852ec4db761d2af2c3e8387bd09073ea981e7001
+
+File: results/phase2_metric_recalculation.csv
+  MD5:    b3acf9f2d91fae3e1637cdd23db499f8
+  SHA256: d9ea1152f782fd12c095f74d21b3a227244a838002b57a93aa5f2d336414a996
+

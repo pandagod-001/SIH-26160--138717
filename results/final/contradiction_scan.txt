@@ -1,0 +1,3 @@
+Scanned 282 files.
+Issues found: 5
+Status: FAIL

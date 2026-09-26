@@ -1,0 +1,41 @@
+{
+  "evaluation_type": "HELD_OUT_ID_VS_UNSEEN_OOD",
+  "id_classes": [
+    "BULK",
+    "INTERACTIVE",
+    "WEB"
+  ],
+  "ood_class": "ICMP",
+  "total_id_samples": 3964,
+  "total_ood_samples": 1518,
+  "mean_heldout_id_confidence": 0.6616,
+  "mean_unseen_ood_confidence": 0.4363,
+  "auroc_score": 0.9077,
+  "threshold_sweep": [
+    {
+      "threshold": 0.5,
+      "id_retention_rate": 0.8842,
+      "ood_rejection_rate": 0.8282
+    },
+    {
+      "threshold": 0.6,
+      "id_retention_rate": 0.6004,
+      "ood_rejection_rate": 0.9389
+    },
+    {
+      "threshold": 0.7,
+      "id_retention_rate": 0.3562,
+      "ood_rejection_rate": 0.9826
+    },
+    {
+      "threshold": 0.8,
+      "id_retention_rate": 0.2033,
+      "ood_rejection_rate": 0.9975
+    },
+    {
+      "threshold": 0.9,
+      "id_retention_rate": 0.0989,
+      "ood_rejection_rate": 0.9997
+    }
+  ]
+}

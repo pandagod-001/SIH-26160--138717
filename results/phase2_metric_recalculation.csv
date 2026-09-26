@@ -1,0 +1,5 @@
+Model,Accuracy Mean,Accuracy Std,Accuracy 95% CI,Macro F1 Mean,Macro F1 Std,Macro F1 95% CI,Macro Precision Mean,Macro Recall Mean
+Dummy (Baseline),0.3113,0.0,0.3113 ± 0.0000,0.1187,0.0,0.1187 ± 0.0000,0.0778,0.25
+Logistic Regression,0.6351,0.0023,0.6351 ± 0.0020,0.5173,0.0028,0.5173 ± 0.0024,0.5476,0.571
+Random Forest,0.8984,0.0051,0.8984 ± 0.0045,0.883,0.0051,0.8830 ± 0.0044,0.8869,0.8802
+XGBoost,0.8717,0.0034,0.8717 ± 0.0030,0.8492,0.0027,0.8492 ± 0.0023,0.8589,0.845

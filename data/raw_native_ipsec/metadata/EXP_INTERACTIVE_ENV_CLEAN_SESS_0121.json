@@ -1,0 +1,18 @@
+{
+  "experiment_id": "EXP_INTERACTIVE_ENV_CLEAN",
+  "session_id": "SESS_0121",
+  "traffic_class": "INTERACTIVE",
+  "environment_id": "ENV_CLEAN",
+  "ipsec_version": "IKEv2",
+  "esp_transform": "cbc(aes)-128",
+  "integrity_transform": "hmac(sha256)",
+  "network_conditions": {
+    "env_id": "ENV_CLEAN",
+    "latency": 0,
+    "jitter": 0,
+    "loss": 0.0
+  },
+  "duration_intended_sec": 8,
+  "pcap_file": "data/raw_native_ipsec/pcaps/EXP_INTERACTIVE_ENV_CLEAN_SESS_0121.pcap",
+  "timestamp": 1790201072.779451
+}

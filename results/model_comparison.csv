@@ -1,0 +1,6 @@
+model,accuracy,macro_f1,macro_precision,macro_recall,dataset,validation_strategy
+Dummy,0.2692,0.2522,0.2522,0.2523,Combined (Tier 1 + Tier 2),GroupKFold (5-fold)
+LogisticRegression,0.4089,0.3271,0.437,0.3709,Combined (Tier 1 + Tier 2),GroupKFold (5-fold)
+RandomForest,0.8985,0.883,0.8867,0.8804,Combined (Tier 1 + Tier 2),GroupKFold (5-fold)
+XGBoost,0.8624,0.8381,0.8503,0.8337,Combined (Tier 1 + Tier 2),GroupKFold (5-fold)
+LightGBM,0.8904,0.873,0.8775,0.8705,Combined (Tier 1 + Tier 2),GroupKFold (5-fold)

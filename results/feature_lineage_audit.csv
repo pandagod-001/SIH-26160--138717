@@ -1,0 +1,19 @@
+Feature,Definition,Source,Target Leakage,Session Leakage,Scaler Leakage,Status
+packet_count,Total packet count in flow window,Raw ESP / Flow Header,No,No,No (Fitted on Train),PASS
+total_bytes,Total bytes transmitted in flow window,Raw ESP / Flow Header,No,No,No (Fitted on Train),PASS
+mean_packet_size,Mean payload packet length,Calculated non-payload size,No,No,No (Fitted on Train),PASS
+median_packet_size,Median payload packet length,Calculated non-payload size,No,No,No (Fitted on Train),PASS
+std_packet_size,Standard deviation of packet size,Calculated non-payload size,No,No,No (Fitted on Train),PASS
+min_packet_size,Minimum packet size,Calculated non-payload size,No,No,No (Fitted on Train),PASS
+max_packet_size,Maximum packet size,Calculated non-payload size,No,No,No (Fitted on Train),PASS
+flow_duration_sec,Flow window duration in seconds,Timestamp diff (end - start),No,No,No (Fitted on Train),PASS
+packets_per_sec,Packet transmission rate,Derived (pkts / duration),No,No,No (Fitted on Train),PASS
+bytes_per_sec,Byte throughput rate,Derived (bytes / duration),No,No,No (Fitted on Train),PASS
+mean_iat_sec,Mean inter-arrival time,Timestamp diff vector,No,No,No (Fitted on Train),PASS
+std_iat_sec,Standard deviation of IAT,Timestamp diff vector,No,No,No (Fitted on Train),PASS
+fwd_packet_count,Forward direction packet count,Directional flow splitter,No,No,No (Fitted on Train),PASS
+rev_packet_count,Reverse direction packet count,Directional flow splitter,No,No,No (Fitted on Train),PASS
+fwd_bytes,Forward direction bytes,Directional flow splitter,No,No,No (Fitted on Train),PASS
+rev_bytes,Reverse direction bytes,Directional flow splitter,No,No,No (Fitted on Train),PASS
+src_ip / dst_ip,IPv4 / IPv6 network addresses,IP Header,YES (Memorizes hosts),YES,N/A,EXCLUDED
+experiment_id,Session capture run ID,Metadata Manifest,YES (Session correlate),YES,N/A,EXCLUDED

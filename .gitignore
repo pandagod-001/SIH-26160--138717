@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv
+venv/
+env/
+ENV/
+
+# Database
+*.db
+backend/sentry_ipsec.db
+
+# Environments
+.env
+.env.local
+
+# Large zip archives (keep repository fast & under GitHub limits)
+*.zip
+!IPsecTrace_FINAL_RESEARCH_PACKAGE.zip
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Separate Standalone Prototype Repo
+IPsecTrace_PROTOTYPE/
+

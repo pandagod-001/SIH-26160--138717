@@ -1,0 +1,12 @@
+{
+    "experiment_id": "EXP_BULK_001",
+    "traffic_class": "BULK",
+    "ipsec_version": "IKEv2",
+    "mode": "tunnel",
+    "encryption": "AES-128-CBC",
+    "authentication": "HMAC-SHA256",
+    "duration_seconds": 3.1,
+    "capture_file": "data/raw/bulk/traffic.pcap",
+    "interface": "veth-c",
+    "ground_truth_label": "BULK"
+}

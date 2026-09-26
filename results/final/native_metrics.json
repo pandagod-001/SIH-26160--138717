@@ -1,0 +1,51 @@
+{
+  "samples": 5482,
+  "pcaps": 294,
+  "groups": 157,
+  "models": [
+    {
+      "model": "Random Forest (100 Trees)",
+      "accuracy_mean": 0.5837,
+      "accuracy_std": 0.1564,
+      "accuracy_ci95": "58.37% \u00b1 13.71%",
+      "macro_precision_mean": 0.6129,
+      "macro_recall_mean": 0.6868,
+      "macro_f1_mean": 0.5832,
+      "macro_f1_std": 0.0732,
+      "macro_f1_ci95": "58.32% \u00b1 6.41%"
+    },
+    {
+      "model": "XGBoost",
+      "accuracy_mean": 0.568,
+      "accuracy_std": 0.1499,
+      "accuracy_ci95": "56.80% \u00b1 13.14%",
+      "macro_precision_mean": 0.5861,
+      "macro_recall_mean": 0.6394,
+      "macro_f1_mean": 0.5596,
+      "macro_f1_std": 0.0693,
+      "macro_f1_ci95": "55.96% \u00b1 6.07%"
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy_mean": 0.5476,
+      "accuracy_std": 0.1901,
+      "accuracy_ci95": "54.76% \u00b1 16.66%",
+      "macro_precision_mean": 0.401,
+      "macro_recall_mean": 0.4528,
+      "macro_f1_mean": 0.3385,
+      "macro_f1_std": 0.0878,
+      "macro_f1_ci95": "33.85% \u00b1 7.70%"
+    },
+    {
+      "model": "Dummy (Stratified)",
+      "accuracy_mean": 0.2503,
+      "accuracy_std": 0.025,
+      "accuracy_ci95": "25.03% \u00b1 2.19%",
+      "macro_precision_mean": 0.2549,
+      "macro_recall_mean": 0.2483,
+      "macro_f1_mean": 0.2157,
+      "macro_f1_std": 0.0238,
+      "macro_f1_ci95": "21.57% \u00b1 2.08%"
+    }
+  ]
+}
