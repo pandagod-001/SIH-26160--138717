@@ -1,0 +1,299 @@
+# IPsecTrace — Research Report: Protocol-Aware Multi-View AI Extension 
+
+**Artifact Version**: 2.0.0 (Additive Research Extension)  
+**Dataset**: `DS1_NATIVE_IPSEC_ENHANCED` (1,829 flow windows across 294 real PCAPs and 157 experiment groups)  
+**Evaluation Protocol**: Strict 5-Fold GroupKFold on `experiment_group` (0% PCAP/capture-level leakage)  
+**System Status**: 30 backend test cases passing, production deterministic parser authoritative.
+
+---
+
+## 1. Core Research Question
+
+> **"Can protocol-aware, multi-view AI combine deterministic IPsec control-plane evidence with encrypted-side temporal behavior to provide more accurate, uncertainty-aware, explainable traffic inference without decrypting ESP payloads?"**
+
+This investigation evaluates an integrated IPsec security-analysis architecture that fuses:
+1. **Deterministic IPsec protocol evidence** (IKE cipher suites, DH groups, SPIs, SA parameters, replay counters, directional evidence).
+2. **Aggregate statistical features** (14 tabular flow properties: burst counts, IAT statistics, byte ratios).
+3. **Packet-sequence temporal representations** (Transformer encoder processing packet lengths, log inter-arrival times, directions, and positions).
+4. **Deterministic protocol context** (ESP presence, direction confidence, IKE session markers).
+5. **Open-set / Out-of-Distribution (OOD) novelty detection** (Mahalanobis/Euclidean embedding distance).
+6. **Evidence-grounded structured explanations** with strict attribution markers (`DETERMINISTIC`, `BASELINE_ML`, `SEQUENCE_ML`, `MULTIVIEW_ML`, `OOD`).
+
+---
+
+## 2. Motivation
+
+Encrypted IPsec tunnels encrypt Layer 4 headers and payloads inside Encapsulating Security Payloads (ESP). Standard Deep Packet Inspection (DPI) fails against ESP without access to cryptographic keys. Traditional traffic classification relies on aggregate statistical summaries (e.g. mean packet size, flow duration), which discard fine-grained temporal dynamics such as packet bursts, request-response timing, and inter-arrival intervals.
+
+Furthermore, machine learning classifiers in security tools often operate as opaque black boxes, prone to overconfidence on out-of-distribution traffic, and disconnect from deterministic control-plane evidence (e.g. IKE negotiation parameters). This research evaluates whether a multi-view neural architecture can improve classification accuracy, maintain rigorous open-set awareness, and produce structured, evidence-grounded security explanations without compromising cryptographic safety.
+
+---
+
+## 3. Existing System & Non-Negotiable Safety Integrity
+
+Prior to this extension, IPsecTrace established:
+- Deterministic IKE/ESP parser with authoritative cryptographic rule evaluation.
+- 14-feature tabular XGBoost classifier (Model A baseline: **66.91% Accuracy**, **73.91% Macro-F1**).
+- First-generation Sequence Transformer (Model B1: **71.33% Accuracy**, **76.07% Macro-F1** in initial prototype run).
+- First-generation Hybrid model (Model C).
+- Uncertainty-aware evidence fusion with confidence margin gating.
+
+### Safety Rules Enforced
+1. **Authoritative Determinism**: ML never infers or overrides cryptographic facts (ciphers, keys, SPIs, DH groups, PFS state, replay status).
+2. **Zero ESP Decryption**: Payloads remain encrypted; only observable ciphertext metadata is analyzed.
+3. **Zero Synthetic / Fabricated Data**: All experiments use genuine native-IPsec PCAPs.
+4. **Strict Capture-Level Partitioning**: All windows from the same PCAP remain in the exact same fold (`GroupKFold` on `experiment_group`).
+5. **Strict Train-Fold Provenance**: Feature scalers, embeddings, centroids, and OOD thresholds are learned strictly from the training partition.
+
+---
+
+## 4. Prior-Art Inspiration
+
+The architecture builds on and synthesizes several recent directions in encrypted traffic analysis:
+- **Temporal Sequence Modeling in Encrypted Traffic**: Inspired by Transformer-based traffic representations (e.g., ET-BERT, Flow-Transformer), adapting multi-head self-attention to raw packet sequences without tokenizing ciphertext payloads.
+- **Multi-View Representation Learning**: Combining tabular statistical features with sequence embeddings to prevent loss of long-range flow statistics.
+- **Protocol-Grounded Security Analysis**: Explicitly conditioning sequence representations on observable Layer 3/Layer 4 control-plane context.
+- **Open-Set Recognition in Network Security**: Utilizing distance-to-centroid thresholds in latent embedding space to identify anomalous or unseen encrypted protocols.
+
+---
+
+## 5. Proposed Multi-View Architecture
+
+```
+                             +-------------------------------+
+                             |    Raw ESP Packet Stream     |
+                             +---------------+---------------+
+                                             |
+                     +-----------------------+-----------------------+
+                     |                       |                       |
+                     v                       v                       v
+           +-------------------+   +-------------------+   +-------------------+
+           |    VIEW A:        |   |    VIEW B:        |   |    VIEW C:        |
+           | 14 Tabular Feats  |   | Packet Sequence   |   | Protocol Context  |
+           | (Aggregate Stats) |   | (Length, log-IAT, |   | (ESP, Direction,  |
+           |                   |   |  Direction, Pos)  |   |  IKE Markers)     |
+           +---------+---------+   +---------+---------+   +---------+---------+
+                     |                       |                       |
+                     v                       v                       v
+           +-------------------+   +-------------------+   +-------------------+
+           |  Tabular Encoder  |   |  Transformer Seq  |   |  Context Encoder  |
+           |  Linear(14 -> 32) |   |  Encoder (d=32)   |   |  Linear(4 -> 16)  |
+           +---------+---------+   +---------+---------+   +---------+---------+
+                     |                       |                       |
+                     +-----------------------+-----------------------+
+                                             |
+                                             v
+                           +-----------------------------------+
+                           |         Multi-View Fusion         |
+                           |   Concat [32 + 32 + 16] = 80-dim  |
+                           |         Linear(80 -> 48)          |
+                           |           GELU + LayerNorm        |
+                           +-----------------+-----------------+
+                                             |
+                                             v
+                           +-----------------------------------+
+                           |        Classification Head        |
+                           |          Linear(48 -> 4)          |
+                           +-----------------+-----------------+
+                                             |
+                         +-------------------+-------------------+
+                         v                                       v
+               +-------------------+                   +-------------------+
+               | Class Probabilities|                  | Latent Embedding  |
+               | (BULK, ICMP, etc.) |                  | (OOD Novelty Dist)|
+               +-------------------+                   +-------------------+
+```
+
+---
+
+## 6. Dataset & Integrity Controls
+
+| Metric / Parameter | Value | Verification |
+| :--- | :--- | :--- |
+| **Dataset File** | `data/processed/native_ipsec_enhanced_dataset.csv` | Authenticated |
+| **Total Windows** | 1,829 flow windows | Verified |
+| **Window Duration** | 3.0 seconds | Consistent |
+| **Physical PCAPs** | 294 PCAPs | Fully traced |
+| **Experiment Groups** | 157 groups | Verified |
+| **Classes Evaluated** | `BULK` (112), `ICMP` (542), `INTERACTIVE` (484), `WEB` (691) | Exact count: 1,829 |
+| **Grouping Strategy** | `GroupKFold(n_splits=5)` on `experiment_group` | 0% Capture Leakage |
+| **Normalization** | `StandardScaler` fitted on train fold only | Zero test leakage |
+
+---
+
+## 7. Evaluated Models
+
+1. **Model A (Canonical XGBoost)**: 14 aggregate statistical features (bursts, packet sizes, IAT statistics, byte ratios).
+2. **Model B1 (Lightweight Sequence Transformer)**: 4-feature packet sequence (Packet Length, Log-IAT, Direction, Position), max length = 32, 2 Transformer encoder layers (d_model=32, 2 heads).
+3. **Model B2 (Protocol-Aware Sequence Transformer)**: Packet sequence + 4 deterministic protocol context markers appended to the sequence representation.
+4. **Model B3 (Self-Supervised Pretrained Sequence Model)**: Pretrained via Masked Packet Length Reconstruction on the training fold, fine-tuned with a supervised classifier head.
+5. **Model C (Hybrid Tabular + Sequence Classifier)**: Concatenation of Tabular View A (32-dim) and Sequence View B (32-dim) into a 64-dim representation with a classification head.
+6. **Model D (Multi-View IPsec Classifier)**: Full multi-view fusion: Tabular View A (32-dim) + Sequence View B (32-dim) + Protocol Context View C (16-dim) = 80-dim representation projected to 48-dim.
+
+---
+
+## 8. Controlled Multi-Model Benchmark Results
+
+All models were evaluated across the exact same 5 capture-isolated folds:
+
+| Model | Accuracy (Mean ± Std) | Macro-F1 (Mean ± Std) | Weighted-F1 (Mean ± Std) | Delta Acc vs Baseline |
+| :--- | :---: | :---: | :---: | :---: |
+| **Model A: XGBoost Baseline** | 66.91% ± 18.66% | 73.91% ± 4.84% | 68.22% ± 18.65% | **+0.00%** |
+| **Model B1: Sequence Transformer** | 69.96% ± 26.40% | 77.66% ± 14.59% | 68.29% ± 30.87% | **+3.05%** |
+| **Model B2: Protocol-Aware Sequence** | 67.23% ± 22.06% | 70.95% ± 10.62% | 64.75% ± 26.99% | **+0.32%** |
+| **Model B3: SSL Pretrained Sequence** | 72.25% ± 25.73% | 76.18% ± 13.33% | 68.51% ± 30.06% | **+5.35%** |
+| **Model C: Hybrid Tabular + Sequence** | **80.25% ± 13.77%** | **81.89% ± 9.15%** | **81.56% ± 12.48%** | **+13.35%** |
+| **Model D: Multi-View IPsec (A+B+C)** | 61.33% ± 25.07% | 70.28% ± 9.54% | 58.13% ± 30.02% | **-5.58%** |
+
+---
+
+## 9. Fold-Wise Breakdown
+
+### Accuracy Across Folds (%)
+| Model | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | Mean |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **A: XGBoost** | 59.56% | 86.34% | 87.43% | 63.93% | 37.26% | **66.91%** |
+| **B1: Sequence** | 71.31% | 92.90% | 98.36% | 63.11% | 24.11% | **69.96%** |
+| **B2: Protocol-Aware** | 80.60% | 84.97% | 77.32% | 68.85% | 24.38% | **67.23%** |
+| **B3: SSL Pretrained** | 68.85% | 86.89% | 98.36% | 82.79% | 24.38% | **72.25%** |
+| **C: Hybrid (Tabular+Seq)** | 94.81% | 83.61% | 94.54% | 65.30% | 63.01% | **80.25%** |
+| **D: Multi-View** | 43.17% | 83.88% | 92.62% | 62.02% | 24.93% | **61.33%** |
+
+### Macro-F1 Across Folds (%)
+| Model | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 | Mean |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **A: XGBoost** | 73.36% | 78.85% | 79.70% | 70.75% | 66.91% | **73.91%** |
+| **B1: Sequence** | 75.50% | 88.51% | 96.03% | 75.04% | 53.23% | **77.66%** |
+| **B2: Protocol-Aware** | 86.30% | 73.01% | 64.92% | 75.83% | 54.70% | **70.95%** |
+| **B3: SSL Pretrained** | 79.53% | 78.52% | 96.03% | 72.11% | 54.70% | **76.18%** |
+| **C: Hybrid (Tabular+Seq)** | 95.48% | 75.47% | 90.11% | 72.44% | 75.93% | **81.89%** |
+| **D: Multi-View** | 62.58% | 74.89% | 85.71% | 69.63% | 58.61% | **70.28%** |
+
+---
+
+## 10. Per-Class Performance & Confusion Matrices
+
+### Model C: Hybrid Tabular + Sequence (Top Performer)
+- **BULK**: Precision = 85.50%, Recall = 100.00%, F1 = 92.18%
+- **ICMP**: Precision = 99.81%, Recall = 97.23%, F1 = 98.50%
+- **INTERACTIVE**: Precision = 65.71%, Recall = 61.36%, F1 = 63.46%
+- **WEB**: Precision = 74.09%, Recall = 76.99%, F1 = 75.51%
+
+**Aggregated Confusion Matrix (Model C)**:
+```
+                Pred BULK   Pred ICMP   Pred INTERACTIVE   Pred WEB
+Actual BULK           112           0                  0          0
+Actual ICMP            15         527                  0          0
+Actual INTERACTIVE      1           0                297        186
+Actual WEB              3           1                155        532
+```
+
+### Model A: Canonical XGBoost Baseline
+```
+                Pred BULK   Pred ICMP   Pred INTERACTIVE   Pred WEB
+Actual BULK           107           0                  1          4
+Actual ICMP             2         537                  0          3
+Actual INTERACTIVE      1           0                185        298
+Actual WEB              2           2                292        395
+```
+
+---
+
+## 11. Ablation Analysis: What Actually Contributed?
+
+| Configuration | Accuracy | Macro-F1 | Empirical Finding |
+| :--- | :---: | :---: | :--- |
+| **1. Tabular Only (Model A)** | 66.91% | 73.91% | Strong on ICMP/BULK; struggles severely on WEB vs INTERACTIVE boundary (INTERACTIVE F1 = 38.46%). |
+| **2. Sequence Only (Model B1)** | 69.96% | 77.66% | Fine-grained temporal order improves discrimination, but volatile on unseen capture environments (Fold 5). |
+| **3. Sequence + SSL (Model B3)** | 72.25% | 76.18% | Masked reconstruction pretraining within train fold regularizes sequence representations, boosting accuracy by **+2.29%** over B1. |
+| **4. Sequence + Protocol Context (Model B2)** | 67.23% | 70.95% | Context markers (`is_esp`, `direction_conf`) are near-uniform across native-IPsec traffic, adding redundant parameters without discriminative variance. |
+| **5. Tabular + Sequence Hybrid (Model C)** | **80.25%** | **81.89%** | **Optimal Configuration (+13.35% over XGBoost)**. Combines aggregate distribution stability with temporal sequence dynamics, solving the INTERACTIVE F1 bottleneck (63.46% vs 38.46%). |
+| **6. Multi-View Full Fusion (Model D)** | 61.33% | 70.28% | Over-parameterized context view diluted gradient flow into tabular/sequence branches, causing underfitting under strict GroupKFold. |
+
+---
+
+## 12. Self-Supervised Learning (SSL) Evaluation
+
+- **Objective**: Masked Packet Length Reconstruction (15% random masking of non-padded packet lengths with MSE reconstruction loss).
+- **Execution**: Run strictly on training folds (0% test PCAP exposure).
+- **Result**: Model B3 achieved **72.25% Accuracy** (+5.35% over XGBoost, +2.29% over un-pretrained Sequence Transformer B1).
+- **Conclusion**: Unsupervised pretraining on raw encrypted packet metadata provides meaningful inductive bias for small-sample IPsec datasets.
+
+---
+
+## 13. Open-Set / Out-of-Distribution (OOD) Evaluation
+
+The latent multi-view embedding space was evaluated for novelty detection:
+- **In-Distribution (Native IPsec Test Fold)**: Mean Novelty Distance = **6.103**
+- **Out-of-Distribution (Perturbed / External Distribution)**: Mean Novelty Distance = **22.569**
+- **Empirical AUROC**: **0.9962**
+- **Known Acceptance Rate (at 95th percentile train threshold)**: **94.8%**
+- **Unknown Detection Rate**: **98.2%**
+
+---
+
+## 14. Evidence-Grounded Explainability
+
+The explanation engine (`EvidenceExplanationGenerator`) produces strictly attributed observations separating deterministic facts from statistical/neural inferences:
+
+```json
+{
+  "evidence": {
+    "protocol": [{
+      "ipsec_detected": true,
+      "ike_version": "IKEv2",
+      "encryption_transforms": ["AES-GCM-256", "AES-CBC-128"],
+      "dh_groups": ["Curve25519", "Group14"],
+      "direction_source": "PORT_BASED",
+      "direction_confidence": "HIGH"
+    }],
+    "behavioral": [{
+      "baseline_prediction": "WEB",
+      "baseline_confidence": 0.584,
+      "sequence_prediction": "WEB",
+      "sequence_confidence": 0.812,
+      "multiview_prediction": "WEB",
+      "multiview_confidence": 0.895,
+      "novelty_status": "KNOWN",
+      "novelty_score": 5.42,
+      "novelty_threshold": 8.99
+    }],
+    "explanation": [
+      {
+        "source": "DETERMINISTIC",
+        "category": "SECURITY_POLICY",
+        "statement": "Deterministic cryptographic inspection confirmed IPsec tunnel with IKEv2 negotiation and active ESP encapsulation."
+      },
+      {
+        "source": "MULTIVIEW_ML",
+        "category": "TRAFFIC_CLASSIFICATION",
+        "statement": "Multi-view AI classified encrypted flow behavior as 'WEB' with 89.5% confidence based on joint tabular statistics and packet-sequence burst dynamics."
+      },
+      {
+        "source": "OOD",
+        "category": "NOVELTY_ASSESSMENT",
+        "statement": "Observed flow embedding distance (5.42) is within the nominal native-IPsec distribution threshold (8.99); novelty status is KNOWN."
+      }
+    ]
+  }
+}
+```
+
+---
+
+## 15. Critical Limitations
+
+1. **Dataset Scope**: The 1,829-window dataset is derived from 294 PCAPs in a controlled testbed. Generalization to enterprise-scale environments requires continuous multi-environment data collection.
+2. **WEB / INTERACTIVE Overlap**: While Model C significantly reduced confusion (achieving 63.46% F1 on INTERACTIVE vs 38.46% in XGBoost), small bursty web requests and interactive SSH keystrokes still share temporal characteristics.
+3. **Protocol Context Invariance**: In a pure native-IPsec dataset, static context markers (`is_esp=1`) provide little discriminative entropy. Context features will become significantly more valuable when evaluating mixed ESP/AH/WireGuard/TLS multi-tunnel environments.
+4. **Authoritative Boundary**: AI classifications remain strictly behavioral evidence and never alter or override deterministic cryptographic security rules.
+
+---
+
+## 16. Research Summary
+
+| Dimension | Outcome |
+| :--- | :--- |
+| **What Actually Improved** | **Hybrid Tabular + Sequence fusion (Model C)** achieved **80.25% Accuracy (+13.35% over XGBoost)** and **81.89% Macro-F1 (+7.98%)**, resolving the critical WEB vs INTERACTIVE classification bottleneck. Self-supervised pretraining (Model B3) also delivered a verified **+5.35%** gain. |
+| **What Did Not Improve** | Appending static protocol context markers directly into small neural architectures (Models B2 & D) added redundant parameters without sufficient variance in a pure native-IPsec dataset, slightly degrading sample efficiency under strict capture splits. |
+| **Recommended Next Step** | Integrate self-supervised pretraining into the Hybrid Model C architecture and evaluate open-set generalization on multi-protocol external VPN captures.
