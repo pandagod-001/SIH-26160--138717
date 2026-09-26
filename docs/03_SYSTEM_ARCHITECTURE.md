@@ -48,3 +48,5 @@
 3. **Flow Window Builder (`backend/app/features/flow_builder.py`)**: Slices ESP packet streams into non-overlapping 3.0-second flow windows.
 4. **Hybrid Neural Classifier (`src/ml/sequence_models.py`)**: Fuses 14 tabular features with a 2-layer Transformer sequence encoder (Model C: 80.25% accuracy).
 5. **Evidence Explanation Engine (`backend/app/evidence/explanation.py`)**: Formulates human-readable audit findings with strict source tagging.
+6. **Telemetry & Evidence Store (`backend/app/database/models.py`)**: Production database built on **PostgreSQL + TimescaleDB** for hypertable time-series flow metrics and relational SA session storage.
+

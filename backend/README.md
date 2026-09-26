@@ -38,7 +38,7 @@ PCAP Upload / Wire Stream
    [Evidence Fusion]
  (Multi-Plane Synthesis, Supporting/Contradicting/Unknowns)
           │
-   [SQLite Persistence]
+   [PostgreSQL + TimescaleDB Persistence]
           │
    [FastAPI REST Engine]
 ```
@@ -49,7 +49,7 @@ PCAP Upload / Wire Stream
 
 ### Prerequisites
 - Python 3.10+ (Ubuntu/Debian, WSL2, or macOS/Windows)
-- SQLite3
+- PostgreSQL 15+ with TimescaleDB (or local SQLite for zero-config testing)
 
 ### Installation
 

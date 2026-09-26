@@ -77,3 +77,13 @@ Evaluated across all 5,482 baseline flow windows (1.0s) / 1,829 enhanced multi-s
 1. **IKE Protocol Analysis**: Parses RFC 7296 header fields, exchange types (`IKE_SA_INIT`, `IKE_AUTH`), and SA proposal transforms directly from packet bytes.
 2. **Anti-Replay Progression**: Verifies monotonic ESP sequence numbering; explicitly designates internal receiver-side SADB window bitmask enforcement as `NOT OBSERVABLE` from passive PCAPs.
 3. **Decoupled Architecture**: Security rule evaluations are 100% deterministic and strictly isolated from statistical ML predictions.
+
+---
+
+## 7. Production Technology Stack
+- **Backend Framework**: FastAPI (High-performance asynchronous REST API)
+- **Deep Learning / ML**: PyTorch (Multi-view Sequence Transformer Model C) + XGBoost 2.1+ / Scikit-Learn (14 tabular flow features)
+- **Packet Dissection & Ingestion**: DPKT / Scapy (Zero-decryption passive protocol parser)
+- **Database & Telemetry Storage**: **PostgreSQL 15+ with TimescaleDB** (Time-series packet flow hypertables + relational SA session graph storage; SQLite supported for local embedded testing)
+- **Deterministic Cryptographic Engine**: NIST SP 800-77 Rev. 1 & RFC 7296 / RFC 4303 rule engine
+
