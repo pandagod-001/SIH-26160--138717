@@ -7,7 +7,7 @@
 **Final Status**: **`GREEN (100% Empirically Validated, Frozen, & Presentation-Ready)`**  
 
 ---
-## 🚀Key Authoritative Results Summary
+## Key Authoritative Results Summary
 
 - **Primary Native IPsec Evaluation (Linux XFRM ESP Testbed, 5,482 Samples, 294 PCAPs, 157 Groups, 0% Leakage)**:
   - **Baseline (1.0s Window, 9 Summary Features)**: Random Forest **58.37% Accuracy / 58.32% Macro-F1**
@@ -19,7 +19,7 @@
 
 ---
 
-## 🛠️ Reproducing All Results
+##  Reproducing All Results
 
 ```bash
 # In WSL2 / Linux Environment with Python 3.10+
@@ -46,7 +46,7 @@ An experimental sequence-learning research branch operates in parallel to the pr
 
 ---
 
-## 📁 Repository Directory Structure
+##  Repository Directory Structure
 
 ```
 IPsecTrace/
@@ -70,7 +70,7 @@ IPsecTrace/
 │       └── native_ipsec_enhanced_dataset.csv  <- 1,829 Enhanced Flow Windows
 │
 ├── results/                               <- Authoritative Benchmark Outputs & Figures
-│   ├── final/                             <- Active Serialized Metrics & Reports
-│   └── figures/                           <- High-Resolution Presentation Charts
+    ├── final/                             <- Active Serialized Metrics & Reports
+    └── figures/                           <- High-Resolution Presentation Charts
 
 ```
