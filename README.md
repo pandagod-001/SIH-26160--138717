@@ -7,19 +7,7 @@
 **Final Status**: **`GREEN (100% Empirically Validated, Frozen, & Presentation-Ready)`**  
 
 ---
-
-## 📌 Single Source of Truth for Presentation & PPT
-For preparing the final SIH presentation, please refer **ONLY** to the documents in [`docs/`](file:///c:/Users/Abhijay/ipsec/docs):
-
-1. 📄 **[`docs/PPT_DATA.md`](file:///c:/Users/Abhijay/ipsec/docs/PPT_DATA.md)** — Complete, clean data blocks ready for direct slide preparation.
-2. 📄 **[`docs/FINAL_PROJECT_CONTEXT.md`](file:///c:/Users/Abhijay/ipsec/docs/FINAL_PROJECT_CONTEXT.md)** — Comprehensive technical single source of truth.
-3. ⚠️ **[`docs/DO_NOT_USE_STALE_RESULTS.md`](file:///c:/Users/Abhijay/ipsec/docs/DO_NOT_USE_STALE_RESULTS.md)** — List of superseded/historical numbers to avoid.
-
-> **CRITICAL NOTICE**: Do **NOT** use archived/superseded experiment reports in `archive/` for final metrics.
-
----
-
-## 🚀 Key Authoritative Results Summary
+## 🚀Key Authoritative Results Summary
 
 - **Primary Native IPsec Evaluation (Linux XFRM ESP Testbed, 5,482 Samples, 294 PCAPs, 157 Groups, 0% Leakage)**:
   - **Baseline (1.0s Window, 9 Summary Features)**: Random Forest **58.37% Accuracy / 58.32% Macro-F1**
@@ -44,7 +32,7 @@ python3 src/ml/run_heldout_ood.py
 
 ---
 
-## 🧪 Research Branch: Sequence Learning on Encrypted ESP Streams
+##  Research Branch: Sequence Learning on Encrypted ESP Streams
 
 An experimental sequence-learning research branch operates in parallel to the production baseline:
 - **Hypothesis**: Observable packet-level sequence representations (length, log-scaled IAT, direction, position) retain temporal dynamics discarded by 14 tabular aggregate features.
