@@ -84,10 +84,5 @@ IPsecTrace/
 ├── results/                               <- Authoritative Benchmark Outputs & Figures
 │   ├── final/                             <- Active Serialized Metrics & Reports
 │   └── figures/                           <- High-Resolution Presentation Charts
-│
-├── IPsecTrace_FINAL_MASTER/             <- Complete Frozen Master Archive Tree
-├── IPsecTrace_FINAL_MASTER_ARCHIVE.zip  <- Single-File Frozen Project Package (4.12 MB)
-│
-└── archive/                               <- Historical Artifacts
-    └── superseded/                        <- Obsolete Pilot Reports (Clearly Marked)
+
 ```
